@@ -1,10 +1,10 @@
-// Dummy data for the real estate website
+// Real estate website data
 
 export interface Property {
   id: string;
   title: string;
   price: number;
-  type: 'apartment' | 'house' | 'condo' | 'villa' | 'townhouse';
+  type: string;
   location: string;
   description: string;
   images: string[];
@@ -13,10 +13,10 @@ export interface Property {
     lat: number;
     lng: number;
   };
-  bedrooms: number;
-  bathrooms: number;
-  area: number; // sq ft
-  featured: boolean;
+  bedrooms?: number;
+  bathrooms?: number;
+  area?: number;
+  featured?: boolean;
 }
 
 export interface BlogPost {
@@ -27,16 +27,18 @@ export interface BlogPost {
   image: string;
   author: string;
   date: string;
-  category: string;
+  category?: string;
 }
 
 export interface Testimonial {
   id: string;
   name: string;
   role: string;
-  content: string;
-  avatar: string;
-  rating: number;
+  content?: string;
+  review?: string;
+  avatar?: string;
+  photo?: string;
+  rating?: number;
 }
 
 export interface TeamMember {
@@ -49,130 +51,145 @@ export interface TeamMember {
   phone: string;
 }
 
-// Sample Properties
+// Properties Data
 export const properties: Property[] = [
   {
-    id: '1',
-    title: 'Luxury Downtown Penthouse',
-    price: 2500000,
-    type: 'apartment',
-    location: 'Downtown District',
-    description: 'Stunning penthouse with panoramic city views, featuring modern amenities and premium finishes throughout.',
-    images: ['/api/placeholder/800/600', '/api/placeholder/800/600', '/api/placeholder/800/600'],
-    amenities: ['City Views', 'Private Balcony', 'Modern Kitchen', 'Gym Access', 'Concierge Service'],
-    coordinates: { lat: 40.7128, lng: -74.0060 },
-    bedrooms: 3,
-    bathrooms: 2,
-    area: 2200,
-    featured: true,
-  },
-  {
-    id: '2',
-    title: 'Modern Waterfront Villa',
-    price: 3800000,
-    type: 'villa',
-    location: 'Waterfront Heights',
-    description: 'Exclusive waterfront villa with private dock, infinity pool, and breathtaking ocean views.',
-    images: ['/api/placeholder/800/600', '/api/placeholder/800/600', '/api/placeholder/800/600'],
-    amenities: ['Ocean Views', 'Private Dock', 'Infinity Pool', 'Wine Cellar', 'Smart Home'],
-    coordinates: { lat: 40.7589, lng: -73.9851 },
+    id: "1",
+    title: "Luxury Beachfront Villa",
+    price: 1200000,
+    type: "Villa",
+    location: "Miami Beach, FL",
+    description:
+      "Experience luxury living in this stunning beachfront villa featuring 5 bedrooms, private pool, and panoramic ocean views.",
+    images: [
+      "/assets/images/property1-1.jpg",
+      "/assets/images/property1-2.jpg",
+      "/assets/images/property1-3.jpg"
+    ],
+    amenities: [
+      "5 Bedrooms",
+      "4 Bathrooms",
+      "Private Pool",
+      "Ocean View",
+      "Garage"
+    ],
+    coordinates: { lat: 25.790654, lng: -80.1300455 },
     bedrooms: 5,
     bathrooms: 4,
-    area: 4200,
-    featured: true,
+    area: 4500,
+    featured: true
   },
   {
-    id: '3',
-    title: 'Contemporary Garden Condo',
-    price: 850000,
-    type: 'condo',
-    location: 'Garden District',
-    description: 'Beautifully designed condo with garden access, modern finishes, and excellent natural light.',
-    images: ['/api/placeholder/800/600', '/api/placeholder/800/600'],
-    amenities: ['Garden Access', 'Natural Light', 'Modern Design', 'Parking Space'],
-    coordinates: { lat: 40.7505, lng: -73.9934 },
+    id: "2",
+    title: "Modern Downtown Apartment",
+    price: 350000,
+    type: "Apartment",
+    location: "New York, NY",
+    description:
+      "A stylish 2-bedroom apartment located in the heart of downtown with modern finishes and skyline views.",
+    images: [
+      "/assets/images/property2-1.jpg",
+      "/assets/images/property2-2.jpg",
+      "/assets/images/property2-3.jpg"
+    ],
+    amenities: [
+      "2 Bedrooms",
+      "2 Bathrooms",
+      "City View",
+      "Gym Access",
+      "24/7 Security"
+    ],
+    coordinates: { lat: 40.712776, lng: -74.005974 },
     bedrooms: 2,
     bathrooms: 2,
     area: 1200,
-    featured: false,
+    featured: false
   },
   {
-    id: '4',
-    title: 'Executive Townhouse',
-    price: 1650000,
-    type: 'townhouse',
-    location: 'Executive Hills',
-    description: 'Spacious townhouse perfect for families, featuring a private garage and beautiful landscaping.',
-    images: ['/api/placeholder/800/600', '/api/placeholder/800/600'],
-    amenities: ['Private Garage', 'Landscaped Yard', 'Family Room', 'Storage Space'],
-    coordinates: { lat: 40.7282, lng: -74.0776 },
-    bedrooms: 4,
-    bathrooms: 3,
-    area: 2800,
-    featured: false,
-  },
+    id: "3",
+    title: "Cozy Suburban Home",
+    price: 220000,
+    type: "House",
+    location: "Austin, TX",
+    description:
+      "Perfect family home featuring 3 bedrooms, a spacious backyard, and a modern open kitchen layout.",
+    images: [
+      "/assets/images/property3-1.jpg",
+      "/assets/images/property3-2.jpg",
+      "/assets/images/property3-3.jpg"
+    ],
+    amenities: [
+      "3 Bedrooms",
+      "2 Bathrooms",
+      "Backyard",
+      "Garage",
+      "Pet-Friendly"
+    ],
+    coordinates: { lat: 30.267153, lng: -97.743057 },
+    bedrooms: 3,
+    bathrooms: 2,
+    area: 1800,
+    featured: false
+  }
 ];
 
-// Sample Blog Posts
+// Blog Posts Data
 export const blogPosts: BlogPost[] = [
   {
-    id: '1',
-    title: 'Top 10 Real Estate Trends for 2024',
-    excerpt: 'Discover the latest trends shaping the luxury real estate market this year.',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-    image: '/api/placeholder/600/400',
-    author: 'Sarah Johnson',
-    date: '2024-01-15',
-    category: 'Market Trends',
+    id: "1",
+    title: "Top 10 Home Buying Tips for First-Time Buyers",
+    author: "Sarah Johnson",
+    date: "2025-08-10",
+    excerpt:
+      "Buying your first home can be overwhelming. Here are 10 essential tips to make the process easier and stress-free...",
+    image: "/assets/images/blog1.jpg",
+    content:
+      "Buying your first home is an exciting journey, but it can also be stressful. Start by understanding your budget, getting pre-approved for a mortgage, and researching neighborhoods...",
+    category: "Home Buying"
   },
   {
-    id: '2',
-    title: 'How to Choose the Perfect Investment Property',
-    excerpt: 'A comprehensive guide to making smart real estate investment decisions.',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-    image: '/api/placeholder/600/400',
-    author: 'Michael Chen',
-    date: '2024-01-10',
-    category: 'Investment',
-  },
-  {
-    id: '3',
-    title: 'Luxury Home Design: Latest Interior Trends',
-    excerpt: 'Explore the newest interior design trends in luxury real estate.',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-    image: '/api/placeholder/600/400',
-    author: 'Emma Rodriguez',
-    date: '2024-01-05',
-    category: 'Design',
-  },
+    id: "2",
+    title: "Why Real Estate Investment is Still Profitable in 2025",
+    author: "Mark Williams",
+    date: "2025-07-20",
+    excerpt:
+      "Real estate remains one of the safest investment options. Here's why 2025 is a great year for property investors...",
+    image: "/assets/images/blog2.jpg",
+    content:
+      "Despite market fluctuations, real estate continues to deliver strong returns. Key trends in 2025 include sustainable housing, remote work impact, and suburban growth...",
+    category: "Investment"
+  }
 ];
 
-// Sample Testimonials
+// Testimonials Data
 export const testimonials: Testimonial[] = [
   {
-    id: '1',
-    name: 'David Thompson',
-    role: 'CEO, Thompson Industries',
-    content: 'Premier Suite helped us find the perfect office location. Their expertise and dedication made the process seamless.',
-    avatar: '/api/placeholder/100/100',
-    rating: 5,
+    id: "1",
+    name: "Emily Carter",
+    role: "Home Buyer",
+    photo: "/assets/images/testimonial1.jpg",
+    review:
+      "The team was amazing! They helped me find my dream home within my budget and made the process so smooth.",
+    rating: 5
   },
   {
-    id: '2',
-    name: 'Lisa Wang',
-    role: 'Investment Banker',
-    content: 'Outstanding service and attention to detail. They understood exactly what we were looking for and delivered beyond expectations.',
-    avatar: '/api/placeholder/100/100',
-    rating: 5,
+    id: "2",
+    name: "James Miller",
+    role: "Investor",
+    photo: "/assets/images/testimonial2.jpg",
+    review:
+      "Great experience! The properties are well-managed, and I received excellent ROI on my investments.",
+    rating: 5
   },
   {
-    id: '3',
-    name: 'Robert Martinez',
-    role: 'Real Estate Investor',
-    content: 'The team at Premier Suite has deep market knowledge and always provides honest, professional advice.',
-    avatar: '/api/placeholder/100/100',
-    rating: 5,
-  },
+    id: "3",
+    name: "Sophia Brown",
+    role: "Seller",
+    photo: "/assets/images/testimonial3.jpg",
+    review:
+      "Sold my property faster than I expected! The marketing and exposure were top-notch.",
+    rating: 5
+  }
 ];
 
 // Sample Team Members
